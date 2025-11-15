@@ -1,2 +1,2 @@
-# Tarun.github.io
+# Tarun's Portfolio
 Portfolio Website - created using Github Pages and Jekyll
