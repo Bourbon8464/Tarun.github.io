@@ -38,6 +38,234 @@ body {
   min-height: 100vh;
 }
 
+.project-detail {
+  background: rgba(15, 23, 42, 0.96);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem 1.6rem 1.4rem;
+  border: 1px solid rgba(59, 151, 151, 0.7);
+  box-shadow: var(--shadow-soft);
+}
+
+.project-detail-intro {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 0.96rem;
+  color: var(--text-muted);
+}
+
+.project-detail-section {
+  margin-top: 1.1rem;
+}
+
+.project-detail-section h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+}
+
+.project-detail-section ul {
+  margin: 0.25rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.project-detail-back {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+
+
+/* Featured rotating project */
+
+.featured-project-wrapper {
+  margin-bottom: 2rem;
+}
+
+.featured-project-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.featured-project-card {
+  background: radial-gradient(circle at top left, rgba(191, 9, 47, 0.2), var(--surface));
+  border-radius: var(--radius-xl);
+  padding: 1.4rem 1.5rem 1.3rem;
+  border: 1px solid rgba(59, 151, 151, 0.7);
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.featured-project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 120% -10%,
+    rgba(191, 9, 47, 0.38),
+    transparent 55%
+  );
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.featured-project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.6);
+  border-color: rgba(191, 9, 47, 0.9);
+}
+
+/* subtle fade animation when React rotates project */
+.featured-project-card {
+  animation: featuredFade 0.7s ease-out;
+}
+
+@keyframes featuredFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-section .section-subtitle code {
+  font-size: 0.8rem;
+  background: rgba(15, 23, 42, 0.9);
+  padding: 0.1rem 0.35rem;
+  border-radius: 999px;
+  margin-inline: 0.15rem;
+}
+
+.admin-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 900px) {
+  .admin-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.admin-panel {
+  background: rgba(15, 23, 42, 0.96);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.1rem 1.2rem;
+  border: 1px solid rgba(59, 151, 151, 0.7);
+}
+
+.admin-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.admin-list {
+  max-height: 24rem;
+  overflow: auto;
+  padding-right: 0.3rem;
+  margin-bottom: 0.9rem;
+}
+
+.admin-item {
+  border-bottom: 1px solid rgba(30, 64, 175, 0.5);
+  padding-bottom: 0.7rem;
+  margin-bottom: 0.7rem;
+}
+
+.admin-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.admin-json {
+  margin-top: 0.5rem;
+}
+
+.admin-json-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  margin-bottom: 0.35rem;
+}
+
+.admin-json textarea {
+  width: 100%;
+  border-radius: 0.6rem;
+  border: 1px solid rgba(55, 65, 81, 0.95);
+  background: rgba(15, 23, 42, 0.96);
+  color: var(--text-muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+  font-size: 0.8rem;
+  padding: 0.5rem 0.6rem;
+}
+
+
+/* Clickable cards */
+
+.card-link-wrapper {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-clickable {
+  cursor: none; /* our custom cursor dot remains */
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card-clickable:hover {
+  transform: translateY(-3px);
+  border-color: rgba(191, 9, 47, 0.75);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Custom cursor */
+body {
+  cursor: none;
+}
+
+.custom-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px; /* centre */
+  margin-top: -4px;
+  border-radius: 50%;
+  background: #BF092F; /* your accent red */
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: transform 0.06s ease-out, opacity 0.2s ease-out;
+}
+
+/* On touch devices keep normal cursor / hide dot */
+@media (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+  .custom-cursor {
+    display: none;
+  }
+}
+
 /* Navbar */
 
 .navbar {
@@ -60,6 +288,10 @@ body {
   background: rgba(15, 23, 42, 0.96);
   border-color: rgba(31, 41, 55, 0.9);
   box-shadow: 0 14px 30px rgba(15, 23, 42, 0.7);
+}
+.nav-link-active {
+  color: var(--text);
+  background: rgba(191, 9, 47, 0.25);
 }
 
 .nav-inner {
@@ -278,15 +510,16 @@ main {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-  color: #020617;
-  box-shadow: 0 16px 35px rgba(56, 189, 248, 0.45);
+  background: linear-gradient(135deg, #BF092F, #a00727);
+  color: #ffffff;
+  box-shadow: 0 16px 35px rgba(191, 9, 47, 0.35);
 }
 
 .btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 20px 40px rgba(56, 189, 248, 0.55);
+  box-shadow: 0 20px 40px rgba(191, 9, 47, 0.55);
 }
+
 
 .btn-secondary {
   border-color: rgba(148, 163, 184, 0.7);
@@ -368,6 +601,164 @@ main {
 .card-link:hover {
   text-decoration: underline;
 }
+
+/* Carousel header and progress bar */
+
+.carousel-header {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.carousel-all-btn {
+  padding: 0.35rem 0.9rem;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.carousel-progress-track {
+  flex: 1;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.3);
+  overflow: hidden;
+}
+
+.carousel-progress-bar {
+  height: 100%;
+  background: #BF092F; /* accent red */
+  transition: width 0.1s linear;
+}
+
+.carousel-meta {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* PROJECT CARDS – TITLE TOP, DESCRIPTION BOTTOM, CLEAN HOVER */
+
+.project-card {
+  min-height: 260px; /* baseline size; JS will set equal explicit heights */
+}
+
+.project-card-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.3rem 1.4rem 1.2rem;
+}
+
+/* Title pinned at the top */
+.project-card-title {
+  margin: 0 0 0.4rem;
+  font-size: 1.02rem;
+}
+
+/* Bottom block anchored to the bottom of the card */
+.project-card-bottom {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Description: initially sits at bottom of the card */
+.project-card-summary {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  transition: transform 0.25s ease;
+}
+
+/* Meta: hidden by default, expands and fades in on hover */
+.project-card-meta {
+  margin-top: 0.6rem;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transform: translateY(6px);
+  transition:
+    opacity 0.25s ease,
+    max-height 0.25s ease,
+    transform 0.25s ease;
+}
+
+.project-card-meta-footer {
+  margin-top: 0.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.project-card-meta-footer .card-period {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.project-card-meta-footer .card-link {
+  font-size: 0.8rem;
+}
+
+/* Hover:
+   - description slides up slightly (towards title)
+   - meta fades in and grows from bottom, no overlap
+*/
+.project-card:hover .project-card-summary {
+  transform: translateY(-6px);
+}
+
+.project-card:hover .project-card-meta {
+  opacity: 1;
+  max-height: 400px;
+  transform: translateY(0);
+}
+
+
+.project-card-static {
+  /* let these grow naturally, no JS equal-height */
+  min-height: 220px;
+}
+
+.project-card-static-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.3rem 1.4rem 1.2rem;
+}
+
+.project-card-static-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.02rem;
+}
+
+.project-card-static-summary {
+  margin: 0 0 0.8rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.project-card-static-meta {
+  margin-top: auto; /* skills/date sit towards bottom if there is spare space */
+}
+
+.project-card-static-footer {
+  margin-top: 0.45rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  font-size: 0.82rem;
+}
+
+/* IMPORTANT: no hover animations here */
+.project-card-static:hover .project-card-static-summary,
+.project-card-static:hover .project-card-static-meta {
+  transform: none;
+  opacity: 1;
+}
+
 
 /* Timeline */
 
