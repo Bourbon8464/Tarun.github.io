@@ -3,8 +3,8 @@ import React, { useEffect, useState, useLayoutEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { projects } from '../data/projects'
 
-const VISIBLE_COUNT = 2
-const ROTATION_DURATION_MS = 10000 // 9 s per tab
+const VISIBLE_COUNT = 3
+const ROTATION_DURATION_MS = 15000 // 15 s per tab
 
 function Projects() {
   const [activeIndex, setActiveIndex] = useState(0)
