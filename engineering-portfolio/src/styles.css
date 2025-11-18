@@ -1180,7 +1180,489 @@ main {
   color: var(--text-muted);
 }
 
+/* === School page === */
 
+.school-page {
+  padding-top: 3.5rem; /* leave room for navbar */
+}
+
+/* Header / hero */
+
+.school-header {
+  max-width: 720px;
+  margin: 0 auto 3rem auto;
+}
+
+.school-eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.25rem;
+}
+
+.school-title {
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.school-subtitle {
+  margin-top: 0.4rem;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.school-minor {
+  opacity: 0.9;
+}
+
+.school-period {
+  margin-top: 0.25rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.school-summary {
+  margin-top: 1rem;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Layout: main + sidebar */
+
+.school-layout {
+  max-width: 1120px;
+  margin: 0 auto 4rem auto;
+  display: grid;
+  grid-template-columns: minmax(0, 2.4fr) minmax(0, 1fr);
+  column-gap: 2.5rem;
+  align-items: flex-start;
+}
+
+@media (max-width: 900px) {
+  .school-layout {
+    grid-template-columns: 1fr;
+    row-gap: 2.5rem;
+  }
+}
+
+/* Course groups */
+
+.school-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.school-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.school-group-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.school-group-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.school-group-blurb {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 550px;
+}
+
+/* Courses grid */
+
+.school-course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.9rem;
+}
+
+.school-course-card {
+  background: rgba(19, 36, 64, 0.9); /* deep navy, matches palette */
+  border-radius: 0.9rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.school-course-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.school-course-code {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.school-course-name {
+  font-size: 0.98rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.school-course-meta {
+  margin-top: 0.25rem;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* Status chips */
+
+.school-status-badge {
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.school-status-completed {
+  border-color: #22c55e;
+  background: rgba(34, 197, 94, 0.08);
+  color: #4ade80;
+}
+
+.school-status-progress {
+  border-color: #bf092f;
+  background: rgba(191, 9, 47, 0.1);
+  color: #ff7a9a;
+}
+
+.school-status-planned {
+  border-color: rgba(148, 163, 184, 1);
+  background: rgba(148, 163, 184, 0.08);
+  color: rgba(226, 232, 240, 1);
+}
+
+/* Sidebar */
+
+.school-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.school-sidebar-card {
+  background: radial-gradient(circle at top left, #3b9797 0, #132440 55%, #050816 100%);
+  border-radius: 1rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.school-sidebar-card h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 0.4rem 0;
+}
+
+.school-sidebar-card ul {
+  list-style: disc;
+  padding-left: 1.1rem;
+  margin: 0;
+}
+
+.school-sidebar-card li {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 0.25rem;
+}
+
+.admin-grid-overview {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.admin-list-simple {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.admin-row-button {
+  width: 100%;
+  text-align: left;
+  border-radius: 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 18, 35, 0.9);
+  padding: 0.6rem 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.admin-row-button:hover {
+  background: rgba(19, 36, 64, 0.9);
+}
+
+.admin-row-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.admin-row-sub {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.admin-row-cta {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.admin-full-editor {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  gap: 1.75rem;
+}
+
+@media (max-width: 900px) {
+  .admin-full-editor {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === Admin: overall === */
+
+.admin-section {
+  padding-top: 3.5rem;
+}
+
+.admin-header h2 {
+  font-size: 1.7rem;
+  margin-bottom: 0.15rem;
+}
+
+.admin-header .section-subtitle {
+  font-size: 0.9rem;
+  color: rgba(148, 163, 184, 0.9);
+}
+
+/* === Overview grid: 2-column layout on desktop === */
+
+.admin-grid-overview {
+  max-width: 1000px;
+  margin: 1.5rem auto 3rem auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .admin-grid-overview {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === Panels (Projects / Experience / Skills / School) === */
+
+.admin-panel {
+  background: #020617; /* slate-950 */
+  border-radius: 0.9rem;
+  border: 1px solid rgba(30, 64, 175, 0.8); /* subtle blue border */
+  padding: 1rem 1.1rem 1.1rem 1.1rem;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+}
+
+.admin-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.admin-panel-header h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* === Simple list of items inside each panel === */
+
+.admin-list-simple {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+/* Clickable row */
+
+.admin-row-button {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: #020617; /* same as panel */
+  border-radius: 0.55rem;
+  padding: 0.55rem 0.65rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  border: 1px solid rgba(51, 65, 85, 0.9); /* slate-600 */
+  color: #e5e7eb;
+  transition:
+    background 120ms ease-out,
+    border-color 120ms ease-out,
+    transform 110ms ease-out,
+    box-shadow 120ms ease-out;
+}
+
+.admin-row-button:hover {
+  background: #0f172a; /* slate-900 */
+  border-color: #bf092f; /* your red accent */
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+}
+
+.admin-row-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1rem;
+}
+
+.admin-row-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #f9fafb;
+}
+
+.admin-row-sub {
+  font-size: 0.78rem;
+  line-height: 1.3;
+  color: rgba(148, 163, 184, 0.95);
+}
+
+/* Right side pill */
+
+.admin-row-cta {
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(248, 250, 252, 0.4);
+  background: rgba(15, 23, 42, 0.9);
+  color: #fca5a5;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .admin-row-button {
+    align-items: flex-start;
+  }
+
+  .admin-row-cta {
+    margin-top: 0.1rem;
+  }
+}
+
+/* === Full-page editor layout === */
+
+.admin-full-editor {
+  max-width: 1000px;
+  margin: 1.5rem auto 3rem auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  gap: 1.6rem;
+}
+
+@media (max-width: 900px) {
+  .admin-full-editor {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Left edit card */
+
+.admin-item {
+  background: #020617;
+  border-radius: 0.9rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(51, 65, 85, 0.9);
+}
+
+/* JSON pane */
+
+.admin-json {
+  background: #020617;
+  border-radius: 0.9rem;
+  padding: 0.85rem 0.95rem;
+  border: 1px solid rgba(51, 65, 85, 0.9);
+}
+
+.admin-json-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.4rem;
+  font-size: 0.8rem;
+  color: rgba(148, 163, 184, 0.9);
+}
+
+.admin-json textarea {
+  width: 100%;
+  border-radius: 0.55rem;
+  border: 1px solid rgba(71, 85, 105, 0.95);
+  background: #020617;
+  color: #e5e7eb;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 0.78rem;
+  padding: 0.45rem 0.55rem;
+  resize: vertical;
+}
+
+/* === Form rows === */
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.6rem;
+}
+
+.form-row label {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(148, 163, 184, 0.95);
+}
+
+.form-row input,
+.form-row textarea {
+  border-radius: 0.5rem;
+  border: 1px solid rgba(71, 85, 105, 0.95);
+  padding: 0.4rem 0.55rem;
+  background: #020617;
+  color: #e5e7eb;
+  font-size: 0.82rem;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+  outline: 2px solid #bf092f;
+  outline-offset: 1px;
+  border-color: #bf092f;
+}
 
 
 /* Responsive */

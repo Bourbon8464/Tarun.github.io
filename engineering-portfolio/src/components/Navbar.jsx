@@ -4,8 +4,8 @@ import { NavLink, useNavigate } from 'react-router-dom'
 const navItems = [
   { id: 'home', label: 'Home', to: '/' },
   { id: 'projects', label: 'Projects', to: '/projects' },
-  { id: 'experience', label: 'Experience', to: '/experience' },
-  { id: 'contact', label: 'Contact', to: '/contact' },
+  { id: 'experience', label: 'Experiences', to: '/experience' },
+  { id: 'school', label: 'Education', to: '/school' },
 ]
 
 if (import.meta.env.DEV) {

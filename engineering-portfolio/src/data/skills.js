@@ -14,7 +14,6 @@ export const skillGroups = [
     "id": "numerics",
     "title": "Numerics & modelling",
     "items": [
-      "Finite-volume / finite-difference",
       "ODE / PDE solvers",
       "Optimisation",
       "Uncertainty analysis"

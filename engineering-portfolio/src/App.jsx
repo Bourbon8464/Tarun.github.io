@@ -6,11 +6,11 @@ import Projects from './components/Projects'
 import Skills from './components/Skills'
 import Experience from './components/Experience'
 import FormulaShowcase from './components/FormulaShowcase'
-import Contact from './components/Contact'
 import ProjectDetail from './components/ProjectDetail'
 import AllProjects from './components/AllProjects'
 import CustomCursor from './components/CustomCursor'
 import AdminDashboard from './components/AdminDashboard'
+import School from "./components/School"; 
 
 function HomePage() {
   return (
@@ -35,7 +35,7 @@ function ExperiencePage() {
     <main>
       <section className="section">
         <div className="section-header">
-          <h2>Experience</h2>
+          <h2>Experiences</h2>
           <p className="section-subtitle">
             Roles, responsibilities, and impact over time.
           </p>
@@ -72,8 +72,7 @@ function App() {
         <Route path="/projects" element={<AllProjectsPage />} />
         <Route path="/projects/:slug" element={<ProjectDetail />} />
         <Route path="/experience" element={<ExperiencePage />} />
-        <Route path="/math" element={<MathPage />} />
-        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/school" element={<School />} />
         <Route path="/admin" element={<AdminDashboard />} />
 
 
