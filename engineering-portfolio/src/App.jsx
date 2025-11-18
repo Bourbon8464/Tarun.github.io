@@ -65,7 +65,7 @@ function ContactPage() {
 function App() {
   return (
     <div className="app">
-      <CustomCursor />
+      {/* <CustomCursor /> */}
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />

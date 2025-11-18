@@ -46,7 +46,8 @@ export const projects = [
         "href": "https://github.com/yourname/low-thrust-optimizer"
       }
     ],
-    "rawTags": "Simulink, Matlab, Controls"
+    "rawTags": "Simulink",
+    "rawTechStack": "Python, NumPy, SciPy, Matplotlib"
   },
   {
     "slug": "improving-the-stability-of-unmanned-aerial-vehicles-using-artificial-intelligence-algorithms",
@@ -85,7 +86,9 @@ export const projects = [
     "techStack": [
       "SIMULINK"
     ],
-    "links": []
+    "links": [],
+    "rawTags": "Propulsion test, Python, Data acquisition",
+    "rawTechStack": "SIMULINK"
   },
   {
     "slug": "remote-sensing-mission-design",
@@ -126,21 +129,23 @@ export const projects = [
       "Python",
       "LaTeX"
     ],
-    "links": []
+    "links": [],
+    "rawTags": "Mission design, STK, Systems engineering",
+    "rawTechStack": "STK, Python, LaTeX"
   },
   {
-    "slug": "",
-    "title": "",
-    "period": "",
+    "slug": "sadsadasdsadasdh-euh-duah-iuashd-uashidu",
+    "title": "sadsadasdsadasdh euh duah iuashd uashidu ",
+    "period": "a asd asd sa",
     "tags": [
-      "Tag1",
-      "Tag2"
+      "pavan is nookie"
     ],
-    "summary": "",
-    "detailIntro": "",
+    "summary": "a sas ",
+    "detailIntro": "dsa daDS as das DSA da DAd aSD asd aD",
     "detailSections": [],
     "techStack": [],
     "links": [],
-    "rawTags": ""
+    "rawTags": "pavan is nookie",
+    "rawTechStack": ""
   }
 ];
