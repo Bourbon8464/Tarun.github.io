@@ -24,42 +24,51 @@ function AdminDashboard() {
 
   // ----- Projects -----
   const handleProjectChange = (index, field, value) => {
-  setProjects((prev) => {
-    const next = [...prev]
-    const current = next[index] || {}
+    setProjects((prev) => {
+      const next = [...prev]
+      const current = next[index] || {}
 
-    let updated = { ...current, [field]: value }
+      let updated = { ...current, [field]: value }
 
-    // If the title changes, regenerate slug automatically
-    if (field === 'title') {
-      updated.slug = slugify(value)
-    }
+      // If the title changes, regenerate slug automatically
+      if (field === 'title') {
+        updated.slug = slugify(value)
+      }
 
-    next[index] = updated
-    return next
-  })
-}
-
+      next[index] = updated
+      return next
+    })
+  }
 
   const addProject = () => {
-  setProjects((prev) => [
-    ...prev,
-    {
-      slug: '',
-      title: 'New project title',
-      period: 'YYYY – YYYY',
-      tags: [],
-      rawTags: 'Tag1, Tag2',
-      summary: 'Short summary.',
-      detailIntro: 'Longer intro.',
-      detailSections: [],
-      techStack: [],
-      rawTechStack: 'Python, React',
-      links: [],
-    },
-  ])
-}
+    setProjects((prev) => [
+      ...prev,
+      {
+        slug: '',
+        title: 'New project title',
+        period: 'YYYY – YYYY',
+        tags: [],
+        rawTags: 'Tag1, Tag2',
+        summary: 'Short summary.',
+        detailIntro: 'Longer intro.',
+        detailSections: [],
+        techStack: [],
+        rawTechStack: 'Python, React',
+        links: [],
+      },
+    ])
+  }
 
+  // ----- Generic delete handler -----
+  const handleDeleteItem = (type, indexToDelete) => {
+    if (type === 'projects') {
+      setProjects((prev) => prev.filter((_, i) => i !== indexToDelete))
+    } else if (type === 'experience') {
+      setRoles((prev) => prev.filter((_, i) => i !== indexToDelete))
+    } else if (type === 'skills') {
+      setSkills((prev) => prev.filter((_, i) => i !== indexToDelete))
+    }
+  }
 
   // ----- Roles (timeline) -----
   const handleRoleChange = (index, field, value) => {
@@ -112,7 +121,8 @@ function AdminDashboard() {
       alert('Could not copy. Select and copy manually.')
     }
   }
-    const saveToFiles = async () => {
+
+  const saveToFiles = async () => {
     try {
       const payload = {
         projects: projects.map((p) => ({
@@ -129,7 +139,6 @@ function AdminDashboard() {
         roles,
         skillGroups: skills,
       }
-
 
       const res = await fetch('/api/save', {
         method: 'POST',
@@ -154,7 +163,7 @@ function AdminDashboard() {
 
   return (
     <section className="section admin-section">
-            <div className="section-header admin-header">
+      <div className="section-header admin-header">
         <div>
           <h2>Admin dashboard</h2>
           <p className="section-subtitle">
@@ -170,13 +179,16 @@ function AdminDashboard() {
         </button>
       </div>
 
-
       <div className="admin-grid">
         {/* Projects panel */}
         <div className="admin-panel">
           <div className="admin-panel-header">
             <h3>Projects</h3>
-            <button type="button" className="btn btn-secondary" onClick={addProject}>
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={addProject}
+            >
               + Add project
             </button>
           </div>
@@ -188,21 +200,27 @@ function AdminDashboard() {
                   <label>Slug</label>
                   <input
                     value={p.slug}
-                    onChange={(e) => handleProjectChange(i, 'slug', e.target.value)}
+                    onChange={(e) =>
+                      handleProjectChange(i, 'slug', e.target.value)
+                    }
                   />
                 </div>
                 <div className="form-row">
                   <label>Title</label>
                   <input
                     value={p.title}
-                    onChange={(e) => handleProjectChange(i, 'title', e.target.value)}
+                    onChange={(e) =>
+                      handleProjectChange(i, 'title', e.target.value)
+                    }
                   />
                 </div>
                 <div className="form-row">
                   <label>Period</label>
                   <input
                     value={p.period}
-                    onChange={(e) => handleProjectChange(i, 'period', e.target.value)}
+                    onChange={(e) =>
+                      handleProjectChange(i, 'period', e.target.value)
+                    }
                   />
                 </div>
                 <div className="form-row">
@@ -210,21 +228,27 @@ function AdminDashboard() {
                   <textarea
                     rows={2}
                     value={p.summary}
-                    onChange={(e) => handleProjectChange(i, 'summary', e.target.value)}
+                    onChange={(e) =>
+                      handleProjectChange(i, 'summary', e.target.value)
+                    }
                   />
                 </div>
                 <div className="form-row">
                   <label>Tags (comma-separated)</label>
                   <input
                     value={p.rawTags ?? ''}
-                    onChange={(e) => handleProjectChange(i, 'rawTags', e.target.value)}
+                    onChange={(e) =>
+                      handleProjectChange(i, 'rawTags', e.target.value)
+                    }
                   />
                 </div>
                 <div className="form-row">
                   <label>Tech stack (comma-separated)</label>
                   <input
                     value={p.rawTechStack ?? ''}
-                    onChange={(e) => handleProjectChange(i, 'rawTechStack', e.target.value)}
+                    onChange={(e) =>
+                      handleProjectChange(i, 'rawTechStack', e.target.value)
+                    }
                   />
                 </div>
                 <div className="form-row">
@@ -232,9 +256,19 @@ function AdminDashboard() {
                   <textarea
                     rows={3}
                     value={p.detailIntro || ''}
-                    onChange={(e) => handleProjectChange(i, 'detailIntro', e.target.value)}
+                    onChange={(e) =>
+                      handleProjectChange(i, 'detailIntro', e.target.value)
+                    }
                   />
                 </div>
+                <button
+                  type="button"
+                  className="btn btn-danger"
+                  onClick={() => handleDeleteItem('projects', i)}
+                  style={{ marginTop: '0.5rem' }}
+                >
+                  Delete project
+                </button>
               </div>
             ))}
           </div>
@@ -260,7 +294,11 @@ function AdminDashboard() {
         <div className="admin-panel">
           <div className="admin-panel-header">
             <h3>Experience (timeline)</h3>
-            <button type="button" className="btn btn-secondary" onClick={addRole}>
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={addRole}
+            >
               + Add role
             </button>
           </div>
@@ -272,7 +310,9 @@ function AdminDashboard() {
                   <label>ID</label>
                   <input
                     value={r.id}
-                    onChange={(e) => handleRoleChange(i, 'id', e.target.value)}
+                    onChange={(e) =>
+                      handleRoleChange(i, 'id', e.target.value)
+                    }
                   />
                 </div>
                 <div className="form-row">
@@ -288,14 +328,18 @@ function AdminDashboard() {
                   <label>Role</label>
                   <input
                     value={r.role}
-                    onChange={(e) => handleRoleChange(i, 'role', e.target.value)}
+                    onChange={(e) =>
+                      handleRoleChange(i, 'role', e.target.value)
+                    }
                   />
                 </div>
                 <div className="form-row">
                   <label>Period</label>
                   <input
                     value={r.period}
-                    onChange={(e) => handleRoleChange(i, 'period', e.target.value)}
+                    onChange={(e) =>
+                      handleRoleChange(i, 'period', e.target.value)
+                    }
                   />
                 </div>
                 <div className="form-row">
@@ -315,6 +359,14 @@ function AdminDashboard() {
                     }
                   />
                 </div>
+                <button
+                  type="button"
+                  className="btn btn-danger"
+                  onClick={() => handleDeleteItem('experience', i)}
+                  style={{ marginTop: '0.5rem' }}
+                >
+                  Delete role
+                </button>
               </div>
             ))}
           </div>
@@ -340,14 +392,18 @@ function AdminDashboard() {
         <div className="admin-panel">
           <div className="admin-panel-header">
             <h3>Skills</h3>
-            <button type="button" className="btn btn-secondary" onClick={addSkillGroup}>
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={addSkillGroup}
+            >
               + Add skill group
             </button>
           </div>
 
           <div className="admin-list">
             {skills.map((g, i) => (
-                <div key={i} className="admin-item">
+              <div key={i} className="admin-item">
                 <div className="form-row">
                   <label>ID</label>
                   <input
@@ -382,6 +438,14 @@ function AdminDashboard() {
                     }
                   />
                 </div>
+                <button
+                  type="button"
+                  className="btn btn-danger"
+                  onClick={() => handleDeleteItem('skills', i)}
+                  style={{ marginTop: '0.5rem' }}
+                >
+                  Delete skill group
+                </button>
               </div>
             ))}
           </div>
@@ -393,7 +457,9 @@ function AdminDashboard() {
                 type="button"
                 className="btn btn-secondary"
                 onClick={() =>
-                  copyToClipboard(`export const skillGroups = ${skillsJson};\n`)
+                  copyToClipboard(
+                    `export const skillGroups = ${skillsJson};\n`,
+                  )
                 }
               >
                 Copy JSON
@@ -406,6 +472,5 @@ function AdminDashboard() {
     </section>
   )
 }
-
 
 export default AdminDashboard

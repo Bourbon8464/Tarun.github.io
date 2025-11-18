@@ -132,20 +132,5 @@ export const projects = [
     "links": [],
     "rawTags": "Mission design, STK, Systems engineering",
     "rawTechStack": "STK, Python, LaTeX"
-  },
-  {
-    "slug": "sadsadasdsadasdh-euh-duah-iuashd-uashidu",
-    "title": "sadsadasdsadasdh euh duah iuashd uashidu ",
-    "period": "a asd asd sa",
-    "tags": [
-      "pavan is nookie"
-    ],
-    "summary": "a sas ",
-    "detailIntro": "dsa daDS as das DSA da DAd aSD asd aD",
-    "detailSections": [],
-    "techStack": [],
-    "links": [],
-    "rawTags": "pavan is nookie",
-    "rawTechStack": ""
   }
 ];
